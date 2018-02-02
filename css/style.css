@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "RobotoSlab-bold";
+  src: url("../fonts/RobotoSlab-Bold.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-line {
+  background: linear-gradient(135deg, #00b4fe 0%,#655de4 100%);
+  height: 3px;
+}
+
+.nav-bar {
+  height: 70px;
+  margin: 10px;
+  margin-left: 30%;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  float: left;
+}
+
+.logo img {
+  height: 70px;
+  border-radius: 5px;
+}
+
+.menu {
+  float: left;
+  width: 70%;
+  height: 70px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+ul {
+  padding-top: 23px;
+}
+
+.menu > ul > li {
+  display: inline;
+  padding-left: 35px;
+}
+
+.menu > ul > li > a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: RobotoSlab-bold;
+}
