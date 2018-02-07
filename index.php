@@ -9,13 +9,13 @@
     <div class="top-line">
     </div>
     <div class="nav-bar">
-      <div class="logo">
-        <img src="img/park-logo.png" alt="IT-Park">
-      </div>
       <div class="menu">
         <ul>
-          <?php include_once "./src/menu/common.php";?>
+          <?php include_once "./src/menu/unauthorized.php";?>
         </ul>
+      </div>
+      <div class="logo">
+        <img src="img/park-logo.png" alt="IT-Park">
       </div>
     </div>
     <p>Hello!</p>

@@ -18,14 +18,13 @@
 .nav-bar {
   height: 70px;
   margin: 10px;
-  margin-left: 30%;
+  float: right;
 }
 
 .logo {
   width: 70px;
   height: 70px;
   display: inline-block;
-  float: left;
 }
 
 .logo img {
@@ -34,24 +33,37 @@
 }
 
 .menu {
-  float: left;
-  width: 70%;
   height: 70px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 ul {
-  padding-top: 23px;
+  padding-top: 20px;
 }
 
 .menu > ul > li {
   display: inline;
-  padding-left: 35px;
+  padding-right: 40px;
 }
 
 .menu > ul > li > a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
   font-family: RobotoSlab-bold;
+}
+
+.login_window {
+  text-align: center;
+  margin-top: 100px;
+    font-family: RobotoSlab-bold;
+}
+
+.auth_form > p {
+  padding-top: 10px;
+
+}
+
+.auth_form > p > input {
+  height: 30px;
 }

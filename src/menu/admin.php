@@ -13,5 +13,6 @@
 <li>
   <a class="menu-link" href="profile.php">Мой профиль</a>
 </li>
+<li>
   <a class="menu-link" href="logout.php">Выход</a>
 </li>
