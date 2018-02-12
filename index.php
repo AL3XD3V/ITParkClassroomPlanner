@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body>
-    <div class="top-line">
-    </div>
-    <div class="nav-bar">
-      <div class="menu">
-        <ul>
-          <?php include_once "./src/menu/unauthorized.php";?>
-        </ul>
-      </div>
-      <div class="logo">
-        <img src="img/park-logo.png" alt="IT-Park">
+    <div class="top-line"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col align-self-center">
+          <ul class="nav justify-content-end">
+            <?php require_once './src/menu/admin.php'; ?>
+          </ul>
+        </div>
+        <div class="col-1 text-center">
+          <img src="img/park-logo.png" class="park-logo" alt="it-park">
+        </div>
       </div>
     </div>
     <p>Hello!</p>
