@@ -1,4 +1,3 @@
-<div class="top-line"></div>
     <div class="container">
       <div class="row">
         <div class="col align-self-center">
