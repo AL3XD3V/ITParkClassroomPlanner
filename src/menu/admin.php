@@ -1,18 +1,18 @@
 <li>
-  <a class="" href="classroom.php">Аудитории</a>
+  <a class="" href="/classroom">Аудитории</a>
 </li>
 <li>
-  <a class="" href="request.php">Оставить заявку</a>
+  <a class="" href="/request">Оставить заявку</a>
 </li>
 <li>
-  <a class="" href="requests.php">Заявки</a>
+  <a class="" href="/requests">Заявки</a>
 </li>
 <li>
-  <a class="" href="users.php">Пользователи</a>
+  <a class="" href="/users">Пользователи</a>
 </li>
 <li>
-  <a class="" href="profile.php">Мой профиль</a>
+  <a class="" href="/profile">Мой профиль</a>
 </li>
 <li>
-  <a class="" href="logout.php">Выход</a>
+  <a class="" href="/logout">Выход</a>
 </li>

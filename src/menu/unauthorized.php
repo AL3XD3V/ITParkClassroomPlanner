@@ -1,6 +1,6 @@
 <li>
-  <a class="" href="classroom.php">Аудитории</a>
+  <a class="" href="/classroom">Аудитории</a>
 </li>
 <li>
-  <a class="" href="login.php">Вход</a>
+  <a class="" href="/login">Вход</a>
 </li>
