@@ -13,6 +13,6 @@ class ModelUsers extends Model
   public function getAuthData()
   {
     include './src/db/db_connect.php';
-    return $pdo->query('SELECT email, password FROM users')->fetchAll();
+    return $pdo->query('SELECT id, email, password, role FROM users')->fetchAll();
   }
 }
