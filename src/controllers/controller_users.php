@@ -13,7 +13,7 @@ class ControllerUsers extends Controller
 
   	function action_index()
   	{
-  		$data = $this->model->getData();
+  		$data = $this->model->getAllData();
   		$this->view->generate('view_users.php', 'view_template.php', $data);
   	}
 

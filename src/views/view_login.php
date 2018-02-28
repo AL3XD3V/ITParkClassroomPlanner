@@ -6,12 +6,12 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-3">
-          <form>
+          <form action="" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" id="loginField" placeholder="Логин">
+              <input type="text" class="form-control" name="loginField" placeholder="Логин">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="passwordField" placeholder="Пароль">
+              <input type="password" class="form-control" name="passwordField" placeholder="Пароль">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-success btn-block" value="Войти">

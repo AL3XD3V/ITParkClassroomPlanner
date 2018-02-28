@@ -8,28 +8,28 @@
         <div class="col-3">
           <form>
             <div class="form-group">
-              <input type="text" class="form-control" id="surnameField" placeholder="Фамилия">
+              <input type="text" class="form-control" name="surnameField" placeholder="Фамилия">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="nameField" placeholder="Имя">
+              <input type="text" class="form-control" name="nameField" placeholder="Имя">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="patronField" placeholder="Отчество">
+              <input type="text" class="form-control" name="patronField" placeholder="Отчество">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="divisionField" placeholder="Отдел/подразделение">
+              <input type="text" class="form-control" name="divisionField" placeholder="Отдел/подразделение">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="positionField" placeholder="Должность">
+              <input type="text" class="form-control" name="positionField" placeholder="Должность">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="phoneField" placeholder="Телефон">
+              <input type="text" class="form-control" name="phoneField" placeholder="Телефон">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="emailField" placeholder="Электронная почта">
+              <input type="text" class="form-control" name="emailField" placeholder="Электронная почта">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="passwordField" placeholder="Пароль">
+              <input type="password" class="form-control" name="passwordField" placeholder="Пароль">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-success btn-block" value="Отправить заявку">
