@@ -21,7 +21,8 @@ class ControllerLogin extends Controller
       foreach ($authData as $row) {
         if (($row['email'] == $_POST['loginField']) && ($row['password'] == MD5($_POST['passwordField'])))
         {
-          $_SESSION['user_id'] = $row['id'];
+          $_SESSION['user_name'] = $row['name'];
+          $_SESSION['user_surname'] = $row['surname'];
           $_SESSION['user_role'] = $row['role'];
           header("Location: http://".$_SERVER['HTTP_HOST']);
           exit;

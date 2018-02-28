@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_SESSION['user_id']) && isset($_SESSION['user_role']))
+if (isset($_SESSION['user_role']) && isset($_SESSION['user_name']))
 {
   if ($_SESSION['user_role'] == 'admin')
   {
@@ -10,6 +10,11 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_role']))
   {
     include './src/menu/user.php';
   }
+  ?>
+  <li>
+    <a class="" style="padding-left: 40px;">Здравствуйте, <?echo $_SESSION['user_name'];?>!</a>
+  </li>
+  <?
 } else {
   include './src/menu/unauthorized.php';
 }
