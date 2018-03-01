@@ -8,28 +8,28 @@
         <div class="col-3">
           <form method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="surnameField" placeholder="Фамилия">
+              <input required type="text" class="form-control" name="surnameField" placeholder="Фамилия">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="nameField" placeholder="Имя">
+              <input required type="text" class="form-control" name="nameField" placeholder="Имя">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="patronField" placeholder="Отчество">
+              <input required type="text" class="form-control" name="patronField" placeholder="Отчество">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="divisionField" placeholder="Отдел/подразделение">
+              <input required type="text" class="form-control" name="divisionField" placeholder="Отдел/подразделение">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="positionField" placeholder="Должность">
+              <input required type="text" class="form-control" name="positionField" placeholder="Должность">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="phoneField" placeholder="Телефон">
+              <input required type="text" class="form-control" name="phoneField" placeholder="Телефон">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="emailField" placeholder="Электронная почта">
+              <input required type="text" class="form-control" name="emailField" placeholder="Электронная почта">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" name="passwordField" placeholder="Пароль">
+              <input required type="password" class="form-control" name="passwordField" placeholder="Пароль">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-success btn-block" value="Отправить заявку">
