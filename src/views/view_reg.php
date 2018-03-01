@@ -6,7 +6,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-3">
-          <form>
+          <form method="post">
             <div class="form-group">
               <input type="text" class="form-control" name="surnameField" placeholder="Фамилия">
             </div>

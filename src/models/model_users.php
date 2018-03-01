@@ -15,4 +15,26 @@ class ModelUsers extends Model
     include './src/db/db_connect.php';
     return $pdo->query('SELECT name, surname, email, password, role FROM users')->fetchAll();
   }
+
+  public function getRegData()
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT email FROM users')->fetchAll();
+  }
+
+  public function setRegData($data)
+  {
+    include './src/db/db_connect.php';
+    $stmt = $pdo->prepare("INSERT INTO users_reg (surname, name, patron, division, position, phone, email, password) VALUES (:surname, :name, :patron, :division, :position, :phone, :email, :password)");
+    $stmt->bindParam(':surname', $data[0]);
+    $stmt->bindParam(':name', $data[1]);
+    $stmt->bindParam(':patron', $data[2]);
+    $stmt->bindParam(':division', $data[3]);
+    $stmt->bindParam(':position', $data[4]);
+    $stmt->bindParam(':phone', $data[5]);
+    $stmt->bindParam(':email', $data[6]);
+    $stmt->bindParam(':password', MD5($data[7]));
+    $stmt->execute();
+  }
+
 }
