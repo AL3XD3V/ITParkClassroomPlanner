@@ -19,7 +19,10 @@ class ControllerLogin extends Controller
       $model = new ModelUsers();
       $authData = $model->getAuthData();
       foreach ($authData as $row) {
-        if (($row['email'] == $_POST['loginField']) && ($row['password'] == MD5($_POST['passwordField'])))
+        if (($row['email'] == $_POST['loginField']) &&
+            ($row['password'] == MD5($_POST['passwordField'])) &&
+            ($row['verified'] == 1)
+            )
         {
           $_SESSION['user_name'] = $row['name'];
           $_SESSION['user_surname'] = $row['surname'];

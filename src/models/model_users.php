@@ -13,7 +13,7 @@ class ModelUsers extends Model
   public function getAuthData()
   {
     include './src/db/db_connect.php';
-    return $pdo->query('SELECT name, surname, email, password, role FROM users')->fetchAll();
+    return $pdo->query('SELECT name, surname, email, password, role, verified FROM users')->fetchAll();
   }
 
   public function getRegData()
@@ -25,7 +25,7 @@ class ModelUsers extends Model
   public function setRegData($data)
   {
     include './src/db/db_connect.php';
-    $stmt = $pdo->prepare("INSERT INTO users_reg (surname, name, patron, division, position, phone, email, password) VALUES (:surname, :name, :patron, :division, :position, :phone, :email, :password)");
+    $stmt = $pdo->prepare("INSERT INTO users (surname, name, patron, division, position, phone, email, password) VALUES (:surname, :name, :patron, :division, :position, :phone, :email, :password)");
     $stmt->bindParam(':surname', $data[0]);
     $stmt->bindParam(':name', $data[1]);
     $stmt->bindParam(':patron', $data[2]);
