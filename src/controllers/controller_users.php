@@ -13,8 +13,18 @@ class ControllerUsers extends Controller
 
   	function action_index()
   	{
-  		$data = $this->model->getAllData();
+      $this->checkAdmin();
+  		$this->verify();
+      $data = $this->model->getAllData();
   		$this->view->generate('view_users.php', 'view_template.php', $data);
   	}
+
+    function verify()
+    {
+      if (!empty($_POST['confirmedEmail']))
+      {
+        $this->model->setVerifyData($_POST['confirmedEmail']);
+      }
+    }
 
 }

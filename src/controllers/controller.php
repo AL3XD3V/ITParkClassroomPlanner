@@ -17,4 +17,13 @@ class Controller
 	{
 	}
 
+	function checkAdmin()
+	{
+		if (!(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin'))
+		{
+			header("Location: http://".$_SERVER['HTTP_HOST']);
+	    exit;
+		}
+	}
+
 }

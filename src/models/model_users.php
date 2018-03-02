@@ -37,4 +37,18 @@ class ModelUsers extends Model
     $stmt->execute();
   }
 
+  public function setVerifyData($data)
+  {
+    include './src/db/db_connect.php';
+    $stmt = $pdo->prepare("UPDATE users SET verified='1' WHERE email=:email");
+    $stmt->bindParam(':email', $data);
+    $stmt->execute();
+  }
+
+  public function getVerifyData()
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT * FROM users WHERE verified=0')->fetchAll();
+  }
+
 }
