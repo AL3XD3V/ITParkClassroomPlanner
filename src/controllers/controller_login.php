@@ -25,7 +25,7 @@ class ControllerLogin extends Controller
             )
         {
           $_SESSION['user_name'] = $row['name'];
-          $_SESSION['user_surname'] = $row['surname'];
+          $_SESSION['user_id'] = $row['id'];
           $_SESSION['user_role'] = $row['role'];
           header("Location: http://".$_SERVER['HTTP_HOST']);
           exit;

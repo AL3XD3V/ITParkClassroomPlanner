@@ -13,7 +13,7 @@ class ModelUsers extends Model
   public function getAuthData()
   {
     include './src/db/db_connect.php';
-    return $pdo->query('SELECT name, surname, email, password, role, verified FROM users')->fetchAll();
+    return $pdo->query('SELECT name, id, email, password, role, verified FROM users')->fetchAll();
   }
 
   public function getRegData()
@@ -49,6 +49,12 @@ class ModelUsers extends Model
   {
     include './src/db/db_connect.php';
     return $pdo->query('SELECT * FROM users WHERE verified=0')->fetchAll();
+  }
+
+  public function getUser($id)
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT * FROM users WHERE id='.$id.'')->fetchAll();
   }
 
 }
