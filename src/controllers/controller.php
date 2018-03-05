@@ -26,4 +26,13 @@ class Controller
 		}
 	}
 
+	function checkAuthorized()
+	{
+		if (!isset($_SESSION['user_role']))
+		{
+			header("Location: http://".$_SERVER['HTTP_HOST']);
+	    exit;
+		}
+	}
+
 }
