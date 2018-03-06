@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
               Выберите дату:
-              <input type="date" name="calendarField">
+              <input type="date" class="form-control" name="calendarField">
             </div>
             <div class="form-group">
               Выберите время начала мероприятия:
@@ -85,20 +85,4 @@
           </form>
         </div>
       </div>
-    </div>
-    <div class="">
-      <table>
-        <?php
-        foreach($data as $row)
-        {
-
-            echo '<tr><td>'.$row['class'].'</td>'.
-                '<td>'.$row['day'].'</td>'.
-                '<td>'.$row['time_start'].'</td>'.
-                '<td>'.$row['time_stop'].'</td>';
-
-        }
-        ?>
-      </table>
-
     </div>

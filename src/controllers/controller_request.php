@@ -14,16 +14,12 @@ class ControllerRequest extends Controller
   	function action_index()
   	{
       $this->checkAuthorized();
+      $this->checkEvent();
       $data = $this->model->getAllData();
-      echo date("h:i:s") . "<br>";
-      echo time() . "<br>";
-      echo strtotime("2018-03-05 15:39:00") . "<br>";
-      echo $_POST['calendarField'];
-      //$this->checkEvent($data);
   		$this->view->generate('view_request.php', 'view_template.php', $data);
   	}
 
-    function checkEvent($data)
+    function checkEvent()
     {
       if (!empty($_POST['calendarField']) &&
           !empty($_POST['startHourField']) &&
@@ -33,30 +29,52 @@ class ControllerRequest extends Controller
           )
       {
         $date = $_POST['calendarField'];
-        $startTime = $_POST['startHourField'] . ':' . $_POST['startMinuteField'] . ':00';
-        $stopTime = $_POST['stopHourField'] . ':' . $_POST['stopMinuteField'] . ':00';
-        foreach ($data as $row) {
-          if ($row['day'])
+        $model = new ModelClasses();
+        $data = $model->getCheckData($date);
+        $found = false;
+        foreach ($data as $row)
+        {
+          if ($_POST['classField'] == $row['class'])
           {
-
+            $startTimeDB = strtotime($row['day'] . ' ' . $row['time_start']);
+            $stopTimeDB = strtotime($row['day'] . ' ' . $row['time_stop']);
+            $startTimePOST = strtotime($_POST['calendarField'] . ' ' . $_POST['startHourField'] . ':' . $_POST['startMinuteField'] . ':01');
+            $stopTimePOST = strtotime($_POST['calendarField'] . ' ' . $_POST['stopHourField'] . ':' . $_POST['stopMinuteField'] . ':01');
+            if (($startTimePOST >= $startTimeDB && $startTimePOST <= $stopTimeDB) ||
+                ($stopTimePOST >= $startTimeDB && $stopTimePOST <= $stopTimeDB) ||
+                ($startTimeDB >= $startTimePOST && $startTimeDB <= $stopTimePOST) ||
+                ($stopTimeDB >= $startTimePOST && $stopTimeDB <= $stopTimePOST)
+                )
+            {
+              $found = true;
+            }
           }
+        }
+        if ($found)
+        {
+          header("Location: http://".$_SERVER['HTTP_HOST']);
+          exit;
+        } else {
+          $this->setEvent($model);
         }
       }
     }
 
-    function setEvent()
+    function setEvent($model)
     {
       $data = array(
-        0 => $_POST['surnameField'],
-        1 => $_POST['nameField'],
-        2 => $_POST['patronField'],
-        3 => $_POST['divisionField'],
-        4 => $_POST['positionField'],
-        5 => $_POST['phoneField'],
-        6 => $_POST['emailField'],
-        7 => $_POST['passwordField']
+        0 => $_POST['classField'],
+        1 => $_POST['calendarField'],
+        2 => $_POST['startHourField'] . ':' . $_POST['startMinuteField'] . ':01',
+        3 => $_POST['stopHourField'] . ':' . $_POST['stopMinuteField'] . ':00',
+        4 => $_POST['nameField'],
+        5 => $_SESSION['user_id'],
+        6 => date('Y-m-d H:i:s'),
+        7 => $_POST['commentField']
       );
-      return $data;
+      $model->setEventData($data);
+      header("Location: http://".$_SERVER['HTTP_HOST']);
+      exit;
     }
 
 }
