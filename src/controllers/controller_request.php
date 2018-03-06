@@ -7,7 +7,6 @@ class ControllerRequest extends Controller
 {
   function __construct()
   	{
-  		$this->model = new ModelClasses();
   		$this->view = new View();
   	}
 
@@ -15,8 +14,7 @@ class ControllerRequest extends Controller
   	{
       $this->checkAuthorized();
       $this->checkEvent();
-      $data = $this->model->getAllData();
-  		$this->view->generate('view_request.php', 'view_template.php', $data);
+  		$this->view->generate('view_request.php', 'view_template.php');
   	}
 
     function checkEvent()
