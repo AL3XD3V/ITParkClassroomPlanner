@@ -34,6 +34,6 @@ class ModelClasses extends Model
   public function getAudWeekData($week)
   {
     include './src/db/db_connect.php';
-    return $pdo->query('SELECT class, day, time_start, time_stop, name FROM classes WHERE WEEK(day)=\''.$week.'\' ORDER BY class, time_start ASC')->fetchAll();
+    return $pdo->query('SELECT class, day, time_start, time_stop, name, confirm FROM classes WHERE WEEK(day)=\''.$week.'\' ORDER BY class, time_start ASC')->fetchAll();
   }
 }

@@ -15,7 +15,7 @@
 			<b>Мероприятия текущей недели:</b>
 		</div>
 		<div class="row justify-content-center">
-    		<div class="col-10">
+    		<div class="col-12">
           <table class="table table-bordered">
 						<tr>
       				<th>День</th>
@@ -23,6 +23,7 @@
       				<th>Начало</th>
       				<th>Окончание</th>
 							<th>Мероприятие</th>
+              <th>Подтверждено</th>
     				</tr>
 						<?php
 						foreach($data as $row)
@@ -32,7 +33,8 @@
 									 	'<td>'.$row['class'].'</td>'.
 									 	'<td>'.substr($row['time_start'], 0, 5).'</td>'.
 									 	'<td>'.substr($row['time_stop'], 0, 5).'</td>'.
-									 	'<td>'.$row['name'].'</td></tr>';
+                    '<td>'.$row['name'].'</td>'.
+                    '<td>'.$row['confirm'].'</td></tr>';
 						}
 						?>
 					</table>
@@ -44,7 +46,7 @@
 			<b>Мероприятия следующей недели:</b>
 		</div>
 		<div class="row justify-content-center">
-    		<div class="col-10">
+    		<div class="col-12">
           <table class="table table-bordered">
 						<tr>
       				<th>День</th>
@@ -52,6 +54,7 @@
       				<th>Начало</th>
       				<th>Окончание</th>
 							<th>Мероприятие</th>
+              <th>Подтверждено</th>
     				</tr>
 						<?php
 						foreach($data2 as $row)
@@ -61,7 +64,8 @@
 									 	'<td>'.$row['class'].'</td>'.
 									 	'<td>'.substr($row['time_start'], 0, 5).'</td>'.
 									 	'<td>'.substr($row['time_stop'], 0, 5).'</td>'.
-									 	'<td>'.$row['name'].'</td></tr>';
+									 	'<td>'.$row['name'].'</td>'.
+                    '<td>'.$row['confirm'].'</td></tr>';
 						}
 						?>
 					</table>
