@@ -1,6 +1,6 @@
 <?php
 
-include './src/models/model.php';
+include_once './src/models/model.php';
 
 class ModelClasses extends Model
 {
@@ -35,5 +35,11 @@ class ModelClasses extends Model
   {
     include './src/db/db_connect.php';
     return $pdo->query('SELECT class, day, time_start, time_stop, name, confirm FROM classes WHERE WEEK(day)=\''.$week.'\' ORDER BY class, time_start ASC')->fetchAll();
+  }
+
+  public function getUserRequests($id)
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT class, day, time_start, time_stop, name, confirm FROM classes WHERE user='.$id.' ORDER BY class, time_start ASC')->fetchAll();
   }
 }

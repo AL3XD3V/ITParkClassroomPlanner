@@ -1,6 +1,6 @@
 <?php
 
-include './src/models/model.php';
+include_once './src/models/model.php';
 
 class ModelUsers extends Model
 {

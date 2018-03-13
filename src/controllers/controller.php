@@ -6,6 +6,7 @@ class Controller
 {
 
 	public $model;
+	public $model2;
 	public $view;
 
 	function __construct()

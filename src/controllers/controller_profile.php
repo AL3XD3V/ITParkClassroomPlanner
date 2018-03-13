@@ -2,12 +2,14 @@
 
 include './src/controllers/controller.php';
 include './src/models/model_users.php';
+include './src/models/model_classes.php';
 
 class ControllerProfile extends Controller
 {
   function __construct()
   	{
   		$this->model = new ModelUsers();
+      $this->model2 = new ModelClasses();
   		$this->view = new View();
   	}
 
@@ -15,7 +17,8 @@ class ControllerProfile extends Controller
   	{
       $id = $this->checkUser();
       $data = $this->model->getUser($id);
-  		$this->view->generate('view_profile.php', 'view_template.php', $data);
+      $data2 = $this->model2->getUserRequests($id);
+  		$this->view->generate('view_profile.php', 'view_template.php', $data, $data2);
   	}
 
     function checkUser()
