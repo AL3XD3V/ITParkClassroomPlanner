@@ -30,4 +30,10 @@ class ModelClasses extends Model
     $stmt->bindParam(':comment', $data[7]);
     $stmt->execute();
   }
+
+  public function getAudWeekData($week)
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT class, day, time_start, time_stop, name FROM classes WHERE WEEK(day)=\''.$week.'\' ORDER BY class, time_start ASC')->fetchAll();
+  }
 }
