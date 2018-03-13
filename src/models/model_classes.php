@@ -42,4 +42,19 @@ class ModelClasses extends Model
     include './src/db/db_connect.php';
     return $pdo->query('SELECT class, day, time_start, time_stop, name, confirm FROM classes WHERE user='.$id.' ORDER BY class, time_start ASC')->fetchAll();
   }
+
+  public function setVerifyData($data)
+  {
+    include './src/db/db_connect.php';
+    $stmt = $pdo->prepare("UPDATE classes SET confirm='1' WHERE reg=:reg AND user=:user");
+    $stmt->bindParam(':reg', $data[0]);
+    $stmt->bindParam(':user', $data[1]);
+    $stmt->execute();
+  }
+
+  public function getVerifyData()
+  {
+    include './src/db/db_connect.php';
+    return $pdo->query('SELECT * FROM classes WHERE confirm=0')->fetchAll();
+  }
 }
