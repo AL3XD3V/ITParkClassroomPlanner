@@ -26,3 +26,23 @@
         </div>
       </div>
     </div>
+</div>
+<div class="container" style="padding-top: 20px;">
+  <?php
+    if (!empty($data))
+    {
+      if ($data == 'decline')
+      {
+        echo '<div class="row justify-content-center">';
+        echo '<div class="col-3 alert alert-danger">';
+        echo 'Такого пользователя не существует или неправильно указаны логин/пароль';
+        echo '</div></div>';
+      } else if ($data == 'not_activated') {
+        echo '<div class="row justify-content-center">';
+        echo '<div class="col-3 alert alert-danger">';
+        echo 'Данная учетная запись еще не активирована.';
+        echo '</div></div>';
+      }
+    }
+  ?>
+</div>

@@ -6,10 +6,12 @@ include './src/models/model_users.php';
 class ControllerLogin extends Controller
 {
 
+  public $info;
+
   function action_index()
   {
     $this->login();
-    $this->view->generate('view_login.php', 'view_template.php');
+    $this->view->generate('view_login.php', 'view_template.php', $this->info);
   }
 
   function login()
@@ -29,7 +31,15 @@ class ControllerLogin extends Controller
           $_SESSION['user_role'] = $row['role'];
           header("Location: http://".$_SERVER['HTTP_HOST']);
           exit;
-        }
+        } else if (($row['email'] == $_POST['loginField']) &&
+            ($row['password'] == MD5($_POST['passwordField'])) &&
+            ($row['verified'] == 0)
+            )
+          {
+            $this->info = 'not_activated';
+          } else {
+            $this->info = 'decline';
+          }
       }
     }
   }

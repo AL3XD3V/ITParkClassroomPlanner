@@ -44,7 +44,7 @@
           {
             echo '<div class="row justify-content-center">';
             echo '<div class="col-3 alert alert-danger">';
-            echo 'Такой пользователь уже существует, или неправильно указаны логин/пароль.';
+            echo 'Такой пользователь уже существует';
             echo '</div></div>';
           } else {
             echo '<div class="row justify-content-center">';
