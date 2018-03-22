@@ -37,4 +37,21 @@
           </form>
         </div>
       </div>
+      <?php
+        if (!empty($data))
+        {
+          if ($data == 'decline')
+          {
+            echo '<div class="row justify-content-center">';
+            echo '<div class="col-3 alert alert-danger">';
+            echo 'Такой пользователь уже существует, или неправильно указаны логин/пароль.';
+            echo '</div></div>';
+          } else {
+            echo '<div class="row justify-content-center">';
+            echo '<div class="col-3 alert alert-success">';
+            echo 'Регистрация прошла успешно. После активации вы можете использовать в качестве логина указанный адрес электронной почты.';
+            echo '</div></div>';
+          }
+        }
+      ?>
     </div>

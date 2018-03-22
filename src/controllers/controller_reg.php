@@ -6,10 +6,12 @@ include './src/models/model_users.php';
 class ControllerReg extends Controller
 {
 
+  public $info;
+
   function action_index()
   {
     $this->registration();
-    $this->view->generate('view_reg.php', 'view_template.php');
+    $this->view->generate('view_reg.php', 'view_template.php', $this->info);
   }
 
   function registration()
@@ -45,8 +47,9 @@ class ControllerReg extends Controller
           7 => $_POST['passwordField']
         );
         $model->setRegData($data);
-        header("Location: http://".$_SERVER['HTTP_HOST']);
-        exit;
+        $this->info = 'accept';
+      } else {
+        $this->info = 'decline';
       }
     }
   }
