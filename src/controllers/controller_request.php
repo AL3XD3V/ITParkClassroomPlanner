@@ -5,8 +5,12 @@ include './src/models/model_classes.php';
 
 class ControllerRequest extends Controller
 {
+
+  public $info;
+
   function __construct()
   	{
+      $this->info = null;
   		$this->view = new View();
   	}
 
@@ -14,7 +18,7 @@ class ControllerRequest extends Controller
   	{
       $this->checkAuthorized();
       $this->checkEvent();
-  		$this->view->generate('view_request.php', 'view_template.php');
+  		$this->view->generate('view_request.php', 'view_template.php', $this->info);
   	}
 
     function checkEvent()
@@ -50,8 +54,7 @@ class ControllerRequest extends Controller
         }
         if ($found)
         {
-          header("Location: http://".$_SERVER['HTTP_HOST']);
-          exit;
+          $this->info = 'decline';
         } else {
           $this->setEvent($model);
         }
@@ -71,8 +74,7 @@ class ControllerRequest extends Controller
         7 => $_POST['commentField']
       );
       $model->setEventData($data);
-      header("Location: http://".$_SERVER['HTTP_HOST']);
-      exit;
+      $this->info = 'accept';
     }
 
 }

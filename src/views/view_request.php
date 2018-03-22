@@ -85,4 +85,21 @@
           </form>
         </div>
       </div>
+          <?php
+            if (!empty($data))
+            {
+              if ($data == 'decline')
+              {
+                echo '<div class="row justify-content-center">';
+                echo '<div class="col-4 alert alert-danger">';
+                echo 'Данная аудитория уже используется в указанный период. Выберите другое время и/или дату.';
+                echo '</div></div>';
+              } else {
+                echo '<div class="row justify-content-center">';
+                echo '<div class="col-4 alert alert-success">';
+                echo 'Аудитория успешно забронирована на указанное время. Ожидайте подтверждения.';
+                echo '</div></div>';
+              }
+            }
+          ?>
     </div>
