@@ -16,17 +16,21 @@
   </div>
   <div class="row justify-content-center">
       <div class="col-6">
-        <table class="table borderless" >
+        <!-- <table class="table borderless" > -->
 						<?php
 						foreach($data as $row)
 						{
-							echo '<tr><td><p>'.$row['surname'].' '.$row['name'].' '.$row['patron'].
-									 	'<p>'.$row['division'].', '.$row['position'].'</p></td>'.
-									 	'<td><p>'.$row['email'].'</p>'.
-									 	'<p>'.$row['phone'].'</p></tr></td>';
+							// echo '<tr><td><p>'.$row['surname'].' '.$row['name'].' '.$row['patron'].
+							// 		 	'<p>'.$row['division'].', '.$row['position'].'</p></td>'.
+							// 		 	'<td><p>'.$row['email'].'</p>'.
+							// 		 	'<p>'.$row['phone'].'</p></tr></td>';
+							echo '<div style="width: 50%; float: left;"><p>'.$row['surname'].' '.$row['name'].' '.$row['patron'].'</p>'.
+										'<p><i>'.$row['division'].', '.$row['position'].'</i></p></div>'.
+										'<div style="width: 50%; float: left; text-align: right;"><p>'.$row['email'].'</p>'.
+										'<p>'.$row['phone'].'</p></div>';
 						}
 						?>
-					</table>
+					<!-- </table> -->
     		</div>
     </div>
 </div>
