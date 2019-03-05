@@ -2,16 +2,19 @@
 
 include './src/controllers/controller.php';
 include './src/models/model_classes.php';
+include './src/db/pdoconnection.php';
 
 class ControllerRequest extends Controller
 {
 
   public $info;
+  public $connection;
 
   function __construct()
   	{
       $this->info = null;
-  		$this->view = new View();
+      $this->view = new View();
+      $this->connection = PDOConnection::getConnection();
   	}
 
   	function action_index()
@@ -32,7 +35,9 @@ class ControllerRequest extends Controller
       {
         $date = $_POST['calendarField'];
         $model = new ModelClasses();
-        $data = $model->getCheckData($date);
+        $this->connection->exec("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;");
+        $this->connection->beginTransaction();
+        $data = $model->getCheckDataNew($this->connection, $date);
         $found = false;
         foreach ($data as $row)
         {
@@ -58,6 +63,7 @@ class ControllerRequest extends Controller
         } else {
           $this->setEvent($model);
         }
+        $this->connection->commit();
       }
     }
 
@@ -73,7 +79,7 @@ class ControllerRequest extends Controller
         6 => date('Y-m-d H:i:s'),
         7 => $_POST['commentField']
       );
-      $model->setEventData($data);
+      $model->setEventDataNew($this->connection, $data);
       $this->info = 'accept';
     }
 

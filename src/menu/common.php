@@ -14,7 +14,7 @@ if (isset($_SESSION['user_role']) && isset($_SESSION['user_name']))
   <li>
     <a class="" style="padding-left: 40px;">Здравствуйте, <?echo $_SESSION['user_name'];?>!</a>
   </li>
-  <?
+  <?php
 } else {
   include './src/menu/unauthorized.php';
 }
