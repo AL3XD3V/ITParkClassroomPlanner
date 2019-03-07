@@ -34,10 +34,10 @@ class ControllerRequest extends Controller
           )
       {
         $date = $_POST['calendarField'];
+        $class = $_POST['classField'];
         $model = new ModelClasses();
-        $this->connection->exec("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;");
-        $this->connection->beginTransaction();
-        $data = $model->getCheckDataNew($this->connection, $date);
+        $this->connection->exec("START TRANSACTION;");
+        $data = $model->getCheckDataNew($this->connection, $date, $class);
         $found = false;
         foreach ($data as $row)
         {
@@ -63,7 +63,7 @@ class ControllerRequest extends Controller
         } else {
           $this->setEvent($model);
         }
-        $this->connection->commit();
+        $this->connection->exec("COMMIT;");
       }
     }
 
