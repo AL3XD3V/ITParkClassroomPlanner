@@ -16,9 +16,9 @@ class ModelClasses extends Model
     return $pdo->query('SELECT class, day, time_start, time_stop FROM classes WHERE day=\''.$date.'\'')->fetchAll();
   }
 
-    public function getCheckDataNew($connection, $date)
+    public function getCheckDataNew($connection, $date, $class)
     {
-        return $connection->query('SELECT class, day, time_start, time_stop FROM classes WHERE day=\''.$date.'\'')->fetchAll();
+        return $connection->query('SELECT class, day, time_start, time_stop FROM classes WHERE day=\''.$date.'\' AND class=\''.$class.'\' FOR UPDATE')->fetchAll();
     }
 
   public function setEventData($data)
